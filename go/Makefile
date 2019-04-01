@@ -1,5 +1,3 @@
-export GOMAXPROCS=1
-
 run: build
 	./go
 build:
