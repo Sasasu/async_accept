@@ -15,10 +15,7 @@ fn main() {
         .for_each(|sock| {
             let buffer = io::read(sock, vec![0; 1024])
                 .and_then(|(sock, _, _)| {
-                    io::write_all(
-                        sock,
-                        "HTTP/1.1 204 No Content\r\nServer: rust-tokio\r\n\r\n",
-                    )
+                    io::write_all(sock, "HTTP/1.1 204 No Content\r\nServer: rs\r\n\r\n")
                 })
                 .and_then(|(sock, _)| sock.shutdown(Shutdown::Both))
                 .and_then(|_| Ok(()))
